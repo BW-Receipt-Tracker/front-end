@@ -6,7 +6,7 @@ const NavBar = () => {
         <nav>
             <NavLink to='/login'>Log In</NavLink>
             <NavLink to='/savedreceipts'>Saved Receipts</NavLink>
-            <button>Log Out</button>
+            <NavLink to='/login'>Log Out</NavLink>
         </nav>
     )
 }
