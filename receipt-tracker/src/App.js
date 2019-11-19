@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 
 import NavBar from './components/NavBar'
+import Login from './components/Login'
+import ReceiptsList from './components/ReceiptsList'
 
 function App() {
   
