@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import HomePage from './components/HomePage'
 import Login from './components/Login'
 import ReceiptsList from './components/ReceiptsList'
+import Register from './components/Register'
 
 function App() {
   
@@ -21,6 +22,10 @@ function App() {
       <Route 
         path='/login'
         component={Login}
+      />
+      <Route
+        path='/register'
+        component={Register}
       />
       <Route
         path='/saved-receipts'
