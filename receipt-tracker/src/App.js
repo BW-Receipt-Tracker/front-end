@@ -3,6 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
+import HomePage from './components/HomePage'
 import Login from './components/Login'
 import ReceiptsList from './components/ReceiptsList'
 
@@ -15,6 +16,7 @@ function App() {
 
       <Route 
         exact path="/"
+        component={HomePage}
       />
       <Route 
         path='/login'
