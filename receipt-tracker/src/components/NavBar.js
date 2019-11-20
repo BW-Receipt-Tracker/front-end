@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+// import styled from "styled-components"
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav >
             <NavLink to='/login'>Log In</NavLink>
             <NavLink to='/register'>Register</NavLink>
             <NavLink to='/receipts-list'>Saved Receipts</NavLink>
