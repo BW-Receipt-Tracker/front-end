@@ -36,18 +36,21 @@ function Register(props) {
                 type = "email"
                 value = {email}
                 required
+                placeholder = "Email"
                 onChange = {(e) => setEmail(e.target.value)} />
             <input 
                 name = "address"
                 type = "text"
                 value = {address}
                 required
+                placeholder = "Your Address"
                 onChange = {(e) => setAddress(e.target.value)} />
             <input 
                 name = "password"
                 type = "password"
                 value = {password}
                 required
+                placeholder = "Password"
                 onChange = {(e) => setPassword(e.target.value)} />
             {error ? <span>{error}</span> : null}
            <input 
@@ -55,6 +58,7 @@ function Register(props) {
                 type = "password"
                 value = {passwordConfirm}
                 required
+                placeholder = "Confirm your password"
                 onChange = {(e) => setPasswordConfirm(e.target.value)} />
             {error ? <span>{error}</span> : null}
             <button type = "button">Submit</button>
