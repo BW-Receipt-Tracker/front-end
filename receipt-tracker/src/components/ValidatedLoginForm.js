@@ -1,17 +1,29 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import axios from 'axios';
 
 
-const ValidatedLoginForm = () => (
+const ValidatedLoginForm = props => (
   <Formik
-    initialValues={{ email: "", password: "" }}
-    onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        console.log("Logging in", values);
-        setSubmitting(false);
-      }, 500);
+    initialValues={{ username: "", password: "" }}
+    onSubmit={(values) => {
+      axios
+            .post('http://project-receipt-tracker.herokuapp.com/login', `grant_type=password&username=${values.username}&password=${values.password}`, {
+                headers: {
+                    Authorization: `Basic bGFtYmRhLWNsaWVudDpsYW1iZGEtc2VjcmV0`,
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.access_token);
+                props.history.push('/receipts-list')
+            })
+            .catch(err => console.log(err));
     }}
+
+    
     //********Handling validation messages *******/
     // validate={values => {
     //   let errors = {};
@@ -35,13 +47,11 @@ const ValidatedLoginForm = () => (
     //********Using Yum for validation********/
 
     validationSchema={Yup.object().shape({
-      email: Yup.string()
-        .email()
+      username: Yup.string()
         .required("Required"),
       password: Yup.string()
         .required("No password provided.")
-        .min(8, "Password is too short - should be 8 chars minimum.")
-        .matches(/(?=.*[0-9])/, "Password must contain a number.")
+        .min(4, "Password is too short - should be 4 chars minimum.")
     })}
   >
     {props => {
@@ -56,20 +66,20 @@ const ValidatedLoginForm = () => (
       } = props;
       return (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">username</label>
           <input
-            name="email"
+            name="username"
             type="text"
-            placeholder="Enter your email"
-            value={values.email}
+            placeholder="Enter your username"
+            value={values.username}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={errors.email && touched.email && "error"}
+            className={errors.username && touched.username && "error"}
           />
-          {errors.email && touched.email && (
-            <div className="input-feedback">{errors.email}</div>
+          {errors.username && touched.username && (
+            <div className="input-feedback">{errors.username}</div>
           )}
-          <label htmlFor="email">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             name="password"
             type="password"
