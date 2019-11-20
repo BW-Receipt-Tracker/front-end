@@ -1,12 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const Register = () => {
+function Register(props) {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
+    
+    const [error, setError] = useState('')
 
-    return(
-        <div>
+    const submit = e => {
+        e.preventDefault();
 
-        </div>
-    )
-}
+        if (password !== passwordConfirm) {
+            setError("Passwords do not match!");
+        } else if (!name) {
+            setError("Name must be provided.");
+        } else {
+            // Back-End Stuff??
+        }
+    };
+
+    return (
+        <form onSubmit = {(e) => submit(e)}>
+            <input 
+                name = "name"
+                type = "text"
+                value = {name}
+                required
+                placeholder = "Name"
+                onChange = {(e) => setName(e.target.value)} />
+            {error ? <span>{error}</span> : null}
+            <input 
+                name = "email"
+                type = "email"
+                value = {email}
+                required
+                onChange = {(e) => setEmail(e.target.value)} />
+            <input 
+                name = "address"
+                type = "text"
+                value = {address}
+                required
+                onChange = {(e) => setAddress(e.target.value)} />
+            <input 
+                name = "password"
+                type = "password"
+                value = {password}
+                required
+                onChange = {(e) => setPassword(e.target.value)} />
+            {error ? <span>{error}</span> : null}
+           <input 
+                name = "passwordConfirm"
+                type = "password"
+                value = {passwordConfirm}
+                required
+                onChange = {(e) => setPasswordConfirm(e.target.value)} />
+            {error ? <span>{error}</span> : null}
+            <button type = "button">Submit</button>
+        </form>
+    );
+};
 
 export default Register

@@ -4,9 +4,10 @@ import { Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
 import HomePage from './components/HomePage'
-import Login from './components/Login'
+import ValidatedLoginForm from './components/ValidatedLoginForm'
 import ReceiptsList from './components/ReceiptsList'
 import Register from './components/Register'
+import CreateNewReceipt from './components/CreateNewReceipt'
 
 function App() {
   
@@ -16,12 +17,12 @@ function App() {
       <NavBar />
 
       <Route 
-        exact path="/"
-        component={HomePage}
+        exact path="/create-receipt"
+        component={CreateNewReceipt}
       />
       <Route 
         path='/login'
-        component={Login}
+        component={ValidatedLoginForm}
       />
       <Route
         path='/register'
