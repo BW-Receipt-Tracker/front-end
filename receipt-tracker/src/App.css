@@ -27,7 +27,14 @@ nav {
   width: 100%;
   background-color: #eee8e8;
   overflow: auto;
+  display: flex;
+  align-items: flex-end;
 }
+
+.logo {
+  width: 10%;
+}
+
 .login, .register, .receipts, .create, .logout {
   color: #2764a0;
   width: 15%;

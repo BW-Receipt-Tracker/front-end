@@ -1,69 +1,52 @@
-import React, { useState } from 'react';
+import React, {useContext} from 'react'
+import axios from 'axios'
 
-function Register(props) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState('');
-    
-    const [error, setError] = useState('')
+import { CredentialContext } from '../contexts/CredentialContext'
 
-    const submit = e => {
-        e.preventDefault();
+const Register = props => {
+    const { registrationCredentials, setRegistrationCredentials } = useContext(CredentialContext)
 
-        if (password !== passwordConfirm) {
-            setError("Passwords do not match!");
-        } else if (!name) {
-            setError("Name must be provided.");
-        } else {
-            // Back-End Stuff??
-        }
-    };
+    const handleChanges = e => {
+        setRegistrationCredentials({...registrationCredentials, [e.target.name]: e.target.value})
+    }
 
-    return (
-        <form onSubmit = {(e) => submit(e)}>
-            <input 
-                name = "name"
-                type = "text"
-                value = {name}
-                required
-                placeholder = "Name"
-                onChange = {(e) => setName(e.target.value)} />
-            {error ? <span>{error}</span> : null}
-            <input 
-                name = "email"
-                type = "email"
-                value = {email}
-                required
-                placeholder = "Email"
-                onChange = {(e) => setEmail(e.target.value)} />
-            <input 
-                name = "address"
-                type = "text"
-                value = {address}
-                required
-                placeholder = "Your Address"
-                onChange = {(e) => setAddress(e.target.value)} />
-            <input 
-                name = "password"
-                type = "password"
-                value = {password}
-                required
-                placeholder = "Password"
-                onChange = {(e) => setPassword(e.target.value)} />
-            {error ? <span>{error}</span> : null}
-           <input 
-                name = "passwordConfirm"
-                type = "password"
-                value = {passwordConfirm}
-                required
-                placeholder = "Confirm your password"
-                onChange = {(e) => setPasswordConfirm(e.target.value)} />
-            {error ? <span>{error}</span> : null}
-            <button type = "button">Submit</button>
-        </form>
-    );
-};
+    const handleSubmit = e => {
+        e.preventDefault()
+        axios
+            .post('http://project-receipt-tracker.herokuapp.com/createnewuser', registrationCredentials)
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.payload);
+                props.history.push('/receipts-list')
+            })
+            .catch(err => console.log(err));
+    }
+
+    return(
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input  
+                    type='text'
+                    name='primaryemail'
+                    placeholder='email'
+                    onChange={handleChanges}
+                />
+                <input  
+                    type='text'
+                    name='username'
+                    placeholder='username'
+                    onChange={handleChanges}
+                />
+                <input  
+                    type='password'
+                    name='password'
+                    placeholder='password'
+                    onChange={handleChanges}
+                />
+                <button>Register</button>
+            </form>
+        </div>
+    )
+}
 
 export default Register
