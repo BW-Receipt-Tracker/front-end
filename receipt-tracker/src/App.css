@@ -7,6 +7,7 @@
 }
 
 .App-header {
+
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,4 +20,49 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+
+nav {
+  width: 100%;
+  background-color: #eee8e8;
+  overflow: auto;
+}
+.login, .register, .receipts, .create, .logout {
+  color: #2764a0;
+  width: 15%;
+  font-weight: 600;
+  font-family: "myriad pro", serif;
+  font-size: 20px;
+  justify-content: center;
+  padding: 12px;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  background-color: #43b5e2;
+}
+
+.nav a.active {
+  background-color: #a3fdab;
+  color: #2764a0;
+}
+
+
+.username {
+  color: #2764a0;
+  font-weight: 600;
+  font-family: "myriad pro", serif;
+  font-size: 20px;
+
+
+
+}
+
+.password {
+  color: #2764a0
 }
