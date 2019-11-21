@@ -27,6 +27,7 @@ const CreateReceipt = () => {
             .then(res => {
                 console.log(res);
                 setReceiptInfo(initialData)
+                setImage('')
             })
             .catch(err => console.log(err))
     }
