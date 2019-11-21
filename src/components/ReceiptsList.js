@@ -18,6 +18,12 @@ const ReceiptsList = () => {
         setQuery(e.target.value)
     }
 
+    const resetSearch = e => {
+        e.stopPropagation()
+        setQuery('')
+        setUpdate(!update)
+    }
+
     useEffect(() => {
         const token = localStorage.getItem('token');
         axios
@@ -41,7 +47,7 @@ const ReceiptsList = () => {
         } else {
             return setReceipts(receipts)
         }
-    }, [setReceipts, receipts, query, searchParameter])
+    }, [query])
     
     return (
         <div>
@@ -58,7 +64,9 @@ const ReceiptsList = () => {
                 type='text'
                 name='search'
                 onChange={handleQueryChanges}
+                value={query}
             />
+            <button onClick={resetSearch}>Reset</button>
             {receipts.map(receipt => (
                 <Receipt
                     key={receipt.receiptid}

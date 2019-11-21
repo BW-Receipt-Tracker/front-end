@@ -67,7 +67,7 @@ const ValidatedLoginForm = props => (
       } = props;
       return (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username" class="username">UserName</label>
+          <label htmlFor="username" className="username">UserName</label>
           <input
             name="username"
             type="text"
@@ -80,7 +80,7 @@ const ValidatedLoginForm = props => (
           {errors.username && touched.username && (
             <div className="input-feedback">{errors.username}</div>
           )}
-          <label htmlFor="password" class="password">Password</label>
+          <label htmlFor="password" className="password">Password</label>
           <input
             name="password"
             type="password"
