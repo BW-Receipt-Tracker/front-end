@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import axios from 'axios';
 
 
+
 const ValidatedLoginForm = props => (
   <Formik
     initialValues={{ username: "", password: "" }}
@@ -66,7 +67,7 @@ const ValidatedLoginForm = props => (
       } = props;
       return (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">username</label>
+          <label htmlFor="username" class="username">UserName</label>
           <input
             name="username"
             type="text"
@@ -79,7 +80,7 @@ const ValidatedLoginForm = props => (
           {errors.username && touched.username && (
             <div className="input-feedback">{errors.username}</div>
           )}
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" class="password">Password</label>
           <input
             name="password"
             type="password"
