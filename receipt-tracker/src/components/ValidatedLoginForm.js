@@ -66,37 +66,39 @@ const ValidatedLoginForm = props => (
         handleSubmit
       } = props;
       return (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username" class="username">UserName</label>
-          <input
-            name="username"
-            type="text"
-            placeholder="Enter your username"
-            value={values.username}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={errors.username && touched.username && "error"}
-          />
-          {errors.username && touched.username && (
-            <div className="input-feedback">{errors.username}</div>
-          )}
-          <label htmlFor="password" class="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={errors.password && touched.password && "error"}
-          />
-          {errors.password && touched.password && (
-            <div className="input-feedback">{errors.password}</div>
-          )}
-          <button type="submit" disabled={isSubmitting}>
-            Login
-          </button>
-        </form>
+        
+          <form onSubmit={handleSubmit}>
+              <label htmlFor="username" class="username">UserName</label>
+              <input
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+                value={values.username}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.username && touched.username && "error"}
+              />
+              {errors.username && touched.username && (
+                <div className="input-feedback">{errors.username}</div>
+              )}
+              <label htmlFor="password" class="password">Password</label>
+              <input
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.password && touched.password && "error"}
+              />
+              {errors.password && touched.password && (
+                <div className="input-feedback">{errors.password}</div>
+              )}
+              <button class="button" type="submit" disabled={isSubmitting}>
+              Login
+            </button>
+          </form>
+        
       );
     }}
   </Formik>
