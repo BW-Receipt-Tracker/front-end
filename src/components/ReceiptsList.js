@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Receipt from './Receipt'
+import TotalSpending from './TotalSpending'
 
 const ReceiptsList = () => {
     const [receipts, setReceipts] = useState([]);
@@ -75,6 +76,7 @@ const ReceiptsList = () => {
                     setUpdate={setUpdate}
                 />
             ))}
+            <TotalSpending update={update}/>
         </div>
     )
 }
