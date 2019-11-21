@@ -17,7 +17,7 @@ const Register = props => {
             .then(res => {
                 console.log(res);
                 localStorage.setItem('token', res.data.payload);
-                props.history.push('/receipts-list')
+                props.history.push('/login')
             })
             .catch(err => console.log(err));
     }

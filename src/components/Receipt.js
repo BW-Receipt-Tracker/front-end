@@ -59,11 +59,11 @@ const Receipt = props => {
 
     return (
         <div>
-            <p>{props.receipt.date}</p>
-            <p>{props.receipt.amount}</p>
-            <p>{props.receipt.category}</p>
-            <p>{props.receipt.merchantname}</p>
-            <img src={props.receipt.imageurl} alt={props.receipt.merchantname} />
+            <p>Date of Purchase: {props.receipt.date}</p>
+            <p>Amount: {props.receipt.amount}</p>
+            <p>Category: {props.receipt.category}</p>
+            <p>Merchant Name: {props.receipt.merchantname}</p>
+            <img className='receiptImage' src={props.receipt.imageurl} alt={props.receipt.merchantname} />
             <button onClick={deleteReceipt}>Delete Receipt</button>
             <button onClick={() => editReceipt(props.receipt)}>Edit Receipt</button>
             {editing &&(
