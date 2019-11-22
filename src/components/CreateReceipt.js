@@ -27,6 +27,7 @@ const CreateReceipt = () => {
             .then(res => {
                 console.log(res);
                 setReceiptInfo(initialData)
+                setImage('')
             })
             .catch(err => console.log(err))
     }
@@ -40,7 +41,7 @@ const CreateReceipt = () => {
             .post('https://api.cloudinary.com/v1_1/dwxkvhdoj/image/upload', data)
             .then(res => {
                 console.log(res)
-                setImage(res.data.secure_url)
+                setReceiptInfo({...receiptInfo, imageurl: res.data.secure_url})
                 console.log(receiptInfo)
             })
             .catch(err => console.log(err))
@@ -96,13 +97,7 @@ const CreateReceipt = () => {
                     data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
                     onChange={uploadImage}
                 />
-                <label class="label1">Copy this to image url:{" "}
-                <input  
-                    type='text'
-                    name='url'
-                    value={image}
-                />
-                </label>
+                <button className="button">Add Receipt</button>
             </form>
     )
 }
