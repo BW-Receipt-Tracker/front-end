@@ -50,14 +50,14 @@ const ReceiptsList = () => {
     }, [query])
     
     return (
-        <div>
-            <label>Search by:
-                <select onChange={handleParameterChanges}>
-                    <option value=''>Choose One</option>
-                    <option value='date'>Date</option>
-                    <option value='amount'>Amount</option>
-                    <option value='category'>Category</option>
-                    <option value='merchantname'>Merchant</option>
+        <div className="savedReceipts">
+            <label>Search by:{" "} 
+                <select onChange={ handleParameterChanges}>
+                    <option value=''> Choose One</option>
+                    <option value='date'> Date</option>
+                    <option value='amount'> Amount</option>
+                    <option value='category'> Category</option>
+                    <option value='merchantname'> Merchant</option>
                 </select>
             </label>
             <input
@@ -66,7 +66,7 @@ const ReceiptsList = () => {
                 onChange={handleQueryChanges}
                 value={query}
             />
-            <button onClick={resetSearch}>Reset</button>
+            <button className="button" onClick={resetSearch}>Reset</button>
             {receipts.map(receipt => (
                 <Receipt
                     key={receipt.receiptid}

@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import axios from 'axios'
 
+
 import { CredentialContext } from '../contexts/CredentialContext'
 
 const Register = props => {
@@ -23,29 +24,32 @@ const Register = props => {
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input  
-                    type='text'
-                    name='primaryemail'
-                    placeholder='email'
-                    onChange={handleChanges}
-                />
-                <input  
-                    type='text'
-                    name='username'
-                    placeholder='username'
-                    onChange={handleChanges}
-                />
-                <input  
-                    type='password'
-                    name='password'
-                    placeholder='password'
-                    onChange={handleChanges}
-                />
-                <button>Register</button>
+        
+            <form className="register1" onSubmit={handleSubmit}>
+                <label htmlFor="email">E-mail</label>
+                    <input 
+                        type='text'
+                        name='primaryemail'
+                        placeholder ='email'
+                        onChange={handleChanges}
+                    />
+                <label htmlFor="username">UserName</label>
+                    <input 
+                        type='text'
+                        name='username'
+                        placeholder='username'
+                        onChange={handleChanges}
+                    />
+                 <label htmlFor="password">Password</label>
+                    <input 
+                        type='password'
+                        name ='password'
+                        placeholder='password'
+                        onChange={handleChanges}
+                    />
+                <button class="button">Register</button>
             </form>
-        </div>
+        
     )
 }
 
