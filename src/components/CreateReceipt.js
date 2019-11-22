@@ -88,7 +88,6 @@ const CreateReceipt = () => {
                     value={receiptInfo.imageurl}
                     onChange={handleChanges}
                 />
-                <button class="button">Add Receipt</button>
                 <input 
                     name="file" 
                     type="file"
