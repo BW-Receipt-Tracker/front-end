@@ -52,8 +52,7 @@ const CreateReceipt = () => {
     // }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+            <form className="createReceipt" onSubmit={handleSubmit}>
                 <input 
                     type='date'
                     name='date'
@@ -89,7 +88,7 @@ const CreateReceipt = () => {
                     value={receiptInfo.imageurl}
                     onChange={handleChanges}
                 />
-                
+                <button class="button">Add Receipt</button>
                 <input 
                     name="file" 
                     type="file"
@@ -98,9 +97,8 @@ const CreateReceipt = () => {
                     data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
                     onChange={uploadImage}
                 />
-                <button>Add Receipt</button>
+                <button className="button">Add Receipt</button>
             </form>
-        </div>
     )
 }
 

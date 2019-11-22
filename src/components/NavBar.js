@@ -11,12 +11,14 @@ const NavBar = () => {
 
     return (
         <nav className="nav">
-            <NavLink className="login" to='/login'>Log In</NavLink>
-            <NavLink className="register" to='/register'>Register</NavLink>
-            <NavLink className="receipts" to='/receipts-list'>Saved Receipts</NavLink>
-            <NavLink className="create" to='/create-receipt'>Create New Receipt</NavLink>
-            <NavLink className="logout" to='/login' onClick={logOut}>Log Out</NavLink>
-            <img className="logo" src={RTLogo} alt="Receipt Tracker logo"></img>
+            <img className="logo" src={RTLogo} alt="Receipt Tracker logo"/>
+            <div>
+                <NavLink className="login" to='/login'>Log In</NavLink>
+                <NavLink className="register" to='/register'>Register</NavLink>
+                <NavLink className="receipts" to='/receipts-list'>Saved Receipts</NavLink>
+                <NavLink className="create" to='/create-receipt'>Create New Receipt</NavLink>
+                <NavLink className="logout" to='/login' onClick={logOut}>Log Out</NavLink>
+            </div>
         </nav>
     )
 }

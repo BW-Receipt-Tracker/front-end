@@ -1,25 +1,31 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  background-color: #F9F6F6;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+.logo {
+  border-radius: 10px;
+  width: 589px;
+  height: 138px;
+  border: 2px solid #2764a0;
+  box-shadow: 13px  13px 13px #00162c ;
+  -webkit-box-shadow: 13px  13px 13px #00162c;
+  -moz-box-shadow: 13px 13px 13px #010911;
+  max-width: 100%;
+  max-height: auto;
+}
+
+
+  
+
+
+.nav div {
+  width: 100%;
+  padding-top: 1.5%;
+  
 }
 
 
@@ -28,17 +34,23 @@ nav {
   background-color: #eee8e8;
   overflow: auto;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.25%;
+  text-shadow: .5px .5px 0 #044688;
+  -webkit-text-shadow: .5px .5px 0px #00162c;
+  -moz-text-shadow: .5px .5px 0px #010911;
+  box-shadow: 10px 10px 10px #010911;
+  -webkit-box-shadow: 10px  10px 13px #00162c;
+  -moz-box-shadow: 10px 10px 13px #010911;
+ 
 }
 
-.logo {
-  width: 10%;
-}
 
 .login, .register, .receipts, .create, .logout {
   color: #2764a0;
   width: 15%;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "myriad pro", serif;
   font-size: 20px;
   justify-content: center;
@@ -47,33 +59,92 @@ nav {
   text-decoration: none;
   text-align: center;
   margin-left: 30px;
+  
 }
 
 .nav a:hover {
+  border-radius: 35%;
   color: #ffffff;
   background-color: #43b5e2;
 }
 
 .nav a.active {
+  border-radius: 35%;
   background-color: #a3fdab;
   color: #2764a0;
 }
 
-
-.username {
-  color: #2764a0;
-  font-weight: 600;
-  font-family: "myriad pro", serif;
+.login1 {
   font-size: 20px;
-
-
-
+  color: #2764a0;
+  margin-top: 3%;
 }
 
-.password {
-  color: #2764a0
+.uName, .pWord {
+  margin-top:2%;
+  padding-top: .5%;
+}
+
+.button {
+background-color: #82ad60;
+border-radius: 5px;
+color: #ffffff;
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+width: 20%;
+height: 1%;
+margin: 1rem 0 1rem 0;
 }
 
 .receiptImage {
   width: 150px;
+}
+
+.register1 {
+  color: #2764a0;
+  font-weight: 700;
+  font-family: "myriad pro", serif;
+  font-size: 20px;
+  margin-top:2%;
+  padding-top: .5%;
+  
+}
+
+.login1, .register1,
+.createReceipt,
+.savedReceipts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.register1 input, button, label,
+.createReceipt input, button,
+.savedReceipts input, button, label {
+  height: 20px;
+  width: 20%;
+  font-weight: 600;
+}
+
+.savedReceipts  {
+  color: #2764a0;
+  font-weight: 600;
+  font-family: "myriad pro", serif;
+  font-size: 20px;
+  margin-top: 3%;
+}
+
+.createReceipt input {
+  color: #2764a0;
+  font-weight: 500;
+  font-family: "myriad pro", serif;
+  font-size: 14px;
+  margin-top: 1.75%;
+}
+
+.label1 {
+  color: #2764a0;
+  font-weight: 600;
 }
