@@ -41,7 +41,7 @@ const CreateReceipt = () => {
             .post('https://api.cloudinary.com/v1_1/dwxkvhdoj/image/upload', data)
             .then(res => {
                 console.log(res)
-                setReceiptInfo({...receipt, imageurl: res.data.secure_url})
+                setReceiptInfo({...receiptInfo, imageurl: res.data.secure_url})
                 console.log(receiptInfo)
             })
             .catch(err => console.log(err))
